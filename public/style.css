@@ -1,22 +1,73 @@
+/* Pixel Art Styles */
 body {
-  margin: 20px;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #222; /* Dark background */
+  color: #0f0; /* Retro green text */
+  text-shadow: 2px 2px #000; /* Simple pixel shadow */
+  margin: 0;
+  display: flex; /* Make body a flex container */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center items horizontally */
+  /* Remove justify-content: center; to allow content to start from the top */
+  min-height: 100vh; /* Ensure body takes full viewport height */
+  overflow: hidden;
 }
 
-code {
-  background: #d0d0d5;
+header {
+  background-color: #444; /* Darker header */
+  padding: 20px;
+  border-bottom: 4px solid #0f0; /* Retro border */
+  box-shadow: 0 4px 0 0 #000; /* Blocky shadow */
+  text-align: center;
+  width: 100%; /* Make header span full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  /* Removed justify-content for header as it's not a flex container in this context */
 }
 
-canvas {
-  margin: auto;
+h1 {
+  font-size: 2em;
+  margin: 0;
+  color: #0f0;
+}
+
+hr {
+  border: none;
+  border-top: 4px dotted #0f0; /* Dotted retro line */
+  width: 80%;
+  margin: 25px auto; /* Center the line */
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
+  background-color: #111; /* Even darker for the container */
+  border: 4px solid #0f0; /* Green border */
+  box-shadow: 8px 8px 0 0 #000; /* More prominent blocky shadow */
+  padding: 10px;
+  margin-top: 20px; /* Add some space below the HR */
+  display: inline-block; /* Shrink to content */
+  image-rendering: pixelated; /* Crucial for pixel art canvas */
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
-@media (min-width: 800px) {
-  .container {
-    flex-direction: row;
-  }
+canvas {
+  background-color: #000; /* Black canvas background */
+  display: block; /* Remove extra space below canvas */
+  border: 2px solid #0f0; /* Inner border for the canvas */
+}
+
+/* Basic pixel pattern for the body background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(45deg, #0f0 25%, transparent 25%, transparent 75%, #0f0 75%, #0f0),
+    linear-gradient(45deg, #0f0 25%, transparent 25%, transparent 75%, #0f0 75%, #0f0);
+  background-size: 8px 8px; /* Size of the pixel pattern */
+  background-position: 0 0, 4px 4px; /* Offset for a staggered pattern */
+  opacity: 0.05; /* Very subtle */
+  pointer-events: none; /* Allows clicks to pass through */
 }
